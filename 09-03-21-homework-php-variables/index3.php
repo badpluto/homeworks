@@ -41,7 +41,7 @@ if (isset($_POST['send'])) {
     </p>
 </form>
 <hr>
-<a href="index.php?name=Петя&test=123&subject=TEST">link</a>
+<a href="../index.php?name=Петя&test=123&subject=TEST">link</a>
 <p>Введенное имя: <?php if (!empty($_POST['name'])) echo $_POST['name']; else echo 'форма не отправлена' ?></p>
 <?php //условие ? да : нет ?>
 <p>Введенный текст: <?php echo !empty($_POST['text']) ? nl2br($_POST['text']) : 'форма не отправлена' ?></p>
