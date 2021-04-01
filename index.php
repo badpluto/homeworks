@@ -54,3 +54,87 @@ echo "</pre>";
 echo Car::getMaxConstant();
 
 echo "<h1> Задача 2</h1>";
+//Задача 2
+abstract class Figure {
+    public $square;
+    public $color;
+    public function __construct(int $square, string $color){
+        $this->square = $square;
+        $this->color = $color;
+    }
+
+    /**
+     * @return string
+     */
+    public function infoAbout(){
+        return "Это геометрическая фигура!";
+    }
+    abstract public function getArea();
+}
+class Rectangle extends Figure{
+    const SIDES_COUNT = 4;
+    private $a;
+    private $b;
+    public function __construct(int $a, int $b){
+        $this->a = $a;
+        $this->b = $b;
+    }
+    public function getArea(){
+        return $this->a * $this->b;
+    }
+    final public function infoAbout(){
+        return 'Это ' . __CLASS__ . '. У него' . self::SIDES_COUNT . ' стороны. </br>';
+    }
+
+}
+class Triangle extends Figure{
+    const SIDES_COUNT = 3;
+    private $a;
+    private $b;
+    private $c;
+    public function __construct(int $a, int $b,int $c){
+        $this->a = $a;
+        $this->b = $b;
+        $this->c = $c;
+    }
+    public function getArea(){
+        return $this->a * $this->b * $this->c;
+    }
+    final public function infoAbout(){
+        return 'Это ' . __CLASS__ . '. У него' . self::SIDES_COUNT . ' стороны. </br>';
+    }
+}
+class Square extends Figure{
+    const SIDES_COUNT = 4;
+    private $a;
+    public function __construct(int $a){
+        $this->a = $a;
+    }
+    public function getArea(){
+        return $this->a * $this->a;
+    }
+    final public function infoAbout(){
+        return 'Это ' . __CLASS__ . '. У него' . self::SIDES_COUNT . ' стороны. </br>';
+    }
+}
+
+$rectangle1 = new Rectangle(2, 3);
+$rectangle2 = new Rectangle(3, 6);
+$triangle1 = new Triangle(2, 3, 5);
+$triangle2 = new Triangle(5, 6, 7);
+$square1 = new Square(2);
+$square2 = new Square(4);
+
+echo $rectangle1->infoAbout();
+echo $triangle1->infoAbout();
+echo $square1->infoAbout();
+echo "</pre>";
+echo $rectangle1->getArea() . '<br>';
+echo $rectangle2->getArea() . '<br>';
+echo "</pre>";
+echo $triangle1->getArea() . '<br>';
+echo $triangle2->getArea() . '<br>';
+echo "</pre>";
+echo $square1->getArea() . '<br>';
+echo $square2->getArea() . '<br>';
+echo "</pre>";
