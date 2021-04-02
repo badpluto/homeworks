@@ -1,30 +1,25 @@
 <?php
-require 'classes.php';
-require 'data.php';
+require_once 'data.php';
+?>
 
-try {
-    $db = new PDO('mysql:host=localhost;dbname=book', 'root', '');
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+<!doctype html>
+     <body lang="en">
+     <head>
+           <meta charset="UTF-8">
+           <title>Books</title>
+     </head>
+     <body>
 
-} catch (PDOException $exception) {
-    print "Error!: " . $exception->getMessage() . "</br>";
+</body>
+
+<?php
+if (!empty($publicationsBooks)){
+    echo '<div>';
+    foreach ($publicationsBooks as $publicationsBook){
+        $publicationsBook->printInfo();
+    }
+    echo '</div>';
 }
-
-
-echo '<!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <title>Books</title>
- </head>
- <body>
-   <p>
-   <img src="/images/BookPdf.jpg" alt="" />
-   <a href="/files/webappsdev.pdf">Люк Веллинг, Разработка веб приложений</a>
-</p>
-<p>
-   <img src="/images/BookDoc.jpg" alt="" />
-   <a href="/files/phpmysql.doc">Кевин Янк, PHP MySQL</a>
-</p>
- </body>
- </html>';
+?>
+</body>
+</html>
