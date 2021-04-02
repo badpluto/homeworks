@@ -1,0 +1,12 @@
+{
+    "name": "admin/badpluto2",
+    "description": "a",
+    "require": {
+        "intervention/image": "^2.5"
+    },
+
+    "autoload": {
+        "psr-4": {"Src\\": "src/"}
+    }
+
+}
