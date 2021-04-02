@@ -14,7 +14,8 @@ try {
     $publicationsBooks = [];
 
     foreach ($books as $book) {
-        $className = 'Book' . ucfirst($book['type_file']);
+        $className = 'Book' . ucfirst($book['type']);
+        //var_dump(ucfirst($book['type_file'])); die;
         $publicationsBooks[] = new $className($book);
     }
 
